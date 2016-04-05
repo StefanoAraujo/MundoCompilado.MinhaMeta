@@ -21,7 +21,7 @@
                         <td>{{goal.Description}}</td>
                         <td>{{goal.Purpose + ' ' + model.PurposeName}}</td>
                         <td>
-                            <button class="mdl-button mdl-js-button mdl-button--accent mdl-color-text--red" id="btnRemove">
+                            <button class="mdl-button mdl-js-button mdl-button--accent mdl-color-text--red" id="btnRemove" ng-click="remove($index)">
                                 <i class="material-icons">delete</i>
                             </button>
                             <div class="mdl-tooltip mdl-tooltip--left " for="btnRemove">
@@ -47,7 +47,7 @@
                         <label class="mdl-textfield__label" for="name">Nome</label>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                        <textarea class="mdl-textfield__input" rows="5" type="text" id="description"></textarea>
+                        <textarea class="mdl-textfield__input" rows="5" type="text" id="description" ng-model="model.Description"></textarea>
                         <label class="mdl-textfield__label" for="description">Descrição</label>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
@@ -69,7 +69,7 @@
                 </form>
             </div>
             <div class="mdl-card__actions mdl-card--border text-center">
-                <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored mdl-color--green">
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored mdl-color--green" ng-click="save(model)">
                     Salvar
                 </a>
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-color-text--red-400" ng-click="showForm = false;">

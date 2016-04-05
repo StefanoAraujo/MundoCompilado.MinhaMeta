@@ -27,15 +27,18 @@
         }
     ];
 
-    $scope.list = function () {
+    $scope.save = function (model) {
+        $scope.models.push(model);
+
+        $scope.showForm = false;
 
     }
 
-    $scope.save = function () {
+    $scope.update = function (model) {
 
     }
 
-    $scope.remove = function () {
-
+    $scope.remove = function (index) {
+        $scope.models.splice(index, 1);
     }
 });
