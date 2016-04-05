@@ -1,0 +1,33 @@
+﻿.app-button {
+  position: absolute;
+  right: 10%;
+  bottom: 5%;
+  z-index: 3;
+}
+
+.text-center { 
+  text-align : center;
+}
+.wrapper {
+  margin : auto;
+}
+
+.mdl-data-table th {
+  text-align:left;
+}
+
+.mdl-data-table td {
+  text-align:left;
+}
+
+.clickable td{
+    cursor: pointer;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.pointer{
+    cursor: pointer;
+}

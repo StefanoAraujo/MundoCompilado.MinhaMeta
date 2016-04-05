@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Minha Meta</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Monitoria e controle de seus objetivos/metas de vida">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <base href="/">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/assets/libs/mdl/material.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
+
+    <style>
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+    </style>
+</head>
+<body ng-app="app">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+        <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+            <div class="mdl-layout__header-row">
+                <a href="/">
+                    <span class="android-title mdl-layout-title">
+                        <img class="android-logo-image" src="assets/images/android-logo.png">
+                    </span>
+                </a>
+                <!-- Add spacer, to align navigation to the right in desktop -->
+                <div class="android-header-spacer mdl-layout-spacer"></div>
+                <div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" id="search-field">
+                    </div>
+                </div>
+                <!-- Navigation -->
+                <div class="android-navigation-container">
+                    <nav class="android-navigation mdl-navigation">
+                        <a class="mdl-navigation__link mdl-typography--text-uppercase" href="goal">Metas</a>
+                        <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Minha Conta</a>
+                    </nav>
+                </div>
+                <span class="android-mobile-title mdl-layout-title">
+                    <img class="android-logo-image" src="assets/images/android-logo.png">
+                </span>
+            </div>
+        </div>
+
+        <div class="android-drawer mdl-layout__drawer">
+            <span class="mdl-layout-title">
+                <img class="android-logo-image" src="assets/images/android-logo-white.png">
+            </span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Festa de casamento</a>
+                <a class="mdl-navigation__link" href="">Comprar moto</a>
+                <a class="mdl-navigation__link" href="">Financiamento da casa</a>
+                <a class="mdl-navigation__link" href="">Comprar móveis</a>
+            </nav>
+        </div>
+
+        <div class="android-content mdl-layout__content">
+
+            <div ng-view style="min-height: 800px;"></div>
+
+            <footer class="docs-text-styling docs-footer mdl-mini-footer mdl-color--grey-900">
+                <span class="">By Jean Carlos - 2016</span>
+            </footer>
+        </div>
+    </div>
+    <script src="/assets/libs/mdl/material.min.js"></script>
+    <script src="assets/script/angular.min.js"></script>
+    <script src="assets/libs/angular-placeholders.js"></script>
+    <script src="assets/libs/angular-mdl.js"></script>
+    <script src="assets/script/angular-route.min.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/controllers/homeController.js"></script>
+    <script src="app/controllers/goalController.js"></script>
+
+</body>
+</html>

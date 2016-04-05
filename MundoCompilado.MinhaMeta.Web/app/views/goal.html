@@ -1,0 +1,92 @@
+﻿<div ng-controller="GoalCtrl">
+
+    <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+    </div>
+
+    <!-- LIST-->
+    <div ng-show="models && !showForm" class="mdl-grid">
+        <div class="">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width clickable">
+                <thead>
+                    <tr>
+                        <th class="">Nome</th>
+                        <th class="full-width">Descrição</th>
+                        <th>Valor</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="goal in models">
+                        <td>{{goal.Name}}</td>
+                        <td>{{goal.Description}}</td>
+                        <td>{{goal.Purpose + ' ' + model.PurposeName}}</td>
+                        <td>
+                            <button class="mdl-button mdl-js-button mdl-button--accent mdl-color-text--red" id="btnRemove">
+                                <i class="material-icons">delete</i>
+                            </button>
+                            <div class="mdl-tooltip mdl-tooltip--left " for="btnRemove">
+                                <span class="mdl-typography--font-bold">Apagar meta {{goal.Name}}</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- FORM -->
+    <div id="form" ng-show="showForm">
+
+        <div class="mdl-card mdl-shadow--2dp wrapper">
+            <div class="mdl-card__title text-center">
+                <h2 class="mdl-card__title-text">{{model.Name ? 'Meta: ' + model.Name : 'Nova meta'}}</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                <form action="#">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                        <input class="mdl-textfield__input" type="text" id="name" ng-model="model.Name" />
+                        <label class="mdl-textfield__label" for="name">Nome</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                        <textarea class="mdl-textfield__input" rows="5" type="text" id="description"></textarea>
+                        <label class="mdl-textfield__label" for="description">Descrição</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                        <input class="mdl-textfield__input" type="text" id="purposeName" ng-model="model.PurposeName" />
+                        <label class="mdl-textfield__label" for="purposeName">Espécie da meta</label>
+                    </div>
+                    <div class="mdl-tooltip" for="purposeName">
+                        Reais, Parcelas, Prestações, ...
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-textfield mdl-js-textfield mdl-cell--6-col">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="purpose" ng-model="model.Purpose">
+                        <label class="mdl-textfield__label" for="purpose">{{model.PurposeName ? 'Valor em ' + model.PurposeName : 'Valor'}}</label>
+                        <span class="mdl-textfield__error">Digite apenas números!</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
+                        <span class="mdl-typography--font-bold">{{model.PurposeName}}</span>
+                    </div>
+                </form>
+            </div>
+            <div class="mdl-card__actions mdl-card--border text-center">
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored mdl-color--green">
+                    Salvar
+                </a>
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-color-text--red-400" ng-click="showForm = false;">
+                    Cancelar
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- add new -->
+    <button ng-show="!showForm" ng-click="showForm = true;" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color--green app-button">
+        <i class="material-icons">{{removeSelected ? 'delete' : 'add'}}</i>
+    </button>
+
+    <div ng-show="!models && !showForm">
+        <div class="logo-font android-slogan mdl-typography--text-center">Você ainda não criou metas para a sua vida =(</div>
+    </div>
+</div>
