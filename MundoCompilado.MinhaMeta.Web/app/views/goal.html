@@ -16,16 +16,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="goal in models">
+                    <tr ng-repeat="goal in models" ng-click="edit($index)">
                         <td>{{goal.Name}}</td>
                         <td>{{goal.Description}}</td>
-                        <td>{{goal.Purpose + ' ' + model.PurposeName}}</td>
+                        <td>{{goal.Purpose + ' ' + goal.PurposeName}}</td>
                         <td>
                             <button class="mdl-button mdl-js-button mdl-button--accent mdl-color-text--red" id="btnRemove" ng-click="remove($index)">
                                 <i class="material-icons">delete</i>
                             </button>
                             <div class="mdl-tooltip mdl-tooltip--left " for="btnRemove">
                                 <span class="mdl-typography--font-bold">Apagar meta {{goal.Name}}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <button class="mdl-button mdl-js-button mdl-button--accent mdl-color-text--blue-300" id="btnRegisterContribuition" ng-click="remove($index)">
+                                <i class="material-icons">plus_one</i>
+                            </button>
+                            <div class="mdl-tooltip mdl-tooltip--left " for="btnRegisterContribuition">
+                                <span class="mdl-typography--font-bold">Registrar aporte</span>
                             </div>
                         </td>
                     </tr>
@@ -83,7 +91,7 @@
 
     <!-- add new -->
     <button ng-show="!showForm" ng-click="showForm = true;" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color--green app-button">
-        <i class="material-icons">{{removeSelected ? 'delete' : 'add'}}</i>
+        <i class="material-icons">{{itemSelected ? 'remove' : 'add'}}</i>
     </button>
 
     <div ng-show="!models && !showForm">

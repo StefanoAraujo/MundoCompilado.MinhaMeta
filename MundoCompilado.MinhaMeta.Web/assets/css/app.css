@@ -1,6 +1,6 @@
 ﻿.app-button {
   position: absolute;
-  right: 10%;
+  right: 5%;
   bottom: 5%;
   z-index: 3;
 }
@@ -18,6 +18,10 @@
 
 .mdl-data-table td {
   text-align:left;
+}
+
+.app-tr-selected {
+    background-color: #77C259;
 }
 
 .clickable td{

@@ -41,4 +41,9 @@
     $scope.remove = function (index) {
         $scope.models.splice(index, 1);
     }
+
+    $scope.edit = function (index) {
+        $scope.model = $scope.models[index];
+        $scope.showForm = true;
+    }
 });
